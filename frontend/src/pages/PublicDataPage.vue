@@ -57,11 +57,18 @@ const loadPage = async () => {
     return
   }
 
-  const response = await api.get(endpoint, {
-    params: route.query
-  })
+  try {
+    const response = await api.get(endpoint, {
+      params: route.query
+    })
 
-  pageProps.value = response.data
+    pageProps.value = response.data && typeof response.data === 'object'
+      ? response.data
+      : {}
+  } catch (error) {
+    console.warn(`Failed to load public page data from ${endpoint}`, error)
+    pageProps.value = {}
+  }
 }
 
 onMounted(loadPage)

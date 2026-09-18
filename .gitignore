@@ -39,3 +39,4 @@ yarn-error.log
 *.tar
 *.tar.gz
 *.sql
+/asset

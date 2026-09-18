@@ -310,24 +310,38 @@ export const staticEkskul = [
 export const staticTestimonials = [
   {
     id: 1,
-    name: 'Orang Tua Siswa',
+    name: 'Ibu Rani',
     role: 'Wali Murid',
-    message:
+    content:
       'Sekolah memberi perhatian pada perkembangan anak, baik akademik maupun karakter. Komunikasi dengan guru juga terasa terbuka.'
   },
   {
     id: 2,
-    name: 'Alumni Yasmin',
+    name: 'Fajar Ramadhan',
     role: 'Alumni',
-    message:
+    content:
       'Lingkungan sekolah membantu saya lebih percaya diri. Banyak pengalaman organisasi dan kegiatan yang masih terasa manfaatnya.'
   },
   {
     id: 3,
-    name: 'Siswa Kelas XI',
+    name: 'Nadia Putri',
     role: 'Peserta Didik',
-    message:
+    content:
       'Belajar di sini terasa dekat dengan guru. Kami didorong aktif bertanya, mencoba, dan ikut kegiatan sesuai minat.'
+  },
+  {
+    id: 4,
+    name: 'Bapak Hendra',
+    role: 'Wali Murid',
+    content:
+      'Kami merasa terbantu karena sekolah tidak hanya mengejar nilai, tetapi juga membiasakan anak untuk disiplin dan bertanggung jawab.'
+  },
+  {
+    id: 5,
+    name: 'Aulia Safitri',
+    role: 'Alumni',
+    content:
+      'Guru-gurunya sabar dan suportif. Dari kegiatan kelas sampai ekstrakurikuler, saya belajar banyak tentang kerja sama dan percaya diri.'
   }
 ]
 

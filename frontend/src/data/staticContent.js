@@ -3,15 +3,18 @@ const image = (folder, file) => `/images/content/${folder}/${file}`
 export const staticNews = [
   {
     id: 1,
-    title: 'Kegiatan Belajar Aktif Menumbuhkan Rasa Percaya Diri Siswa',
-    slug: 'kegiatan-belajar-aktif',
-    location: 'Kampus Yasmin',
-    image: image('news', '1764601509_zIzkNiCJEJ.png'),
-    date: '2026-01-12',
+    title:
+      'Perancangan Sistem Informasi Profil dan Manajemen Konten Sekolah Berbasis Web pada Yayasan Nusantara',
+    slug: 'perancangan-sistem-informasi-profil-dan-manajemen-konten-sekolah-berbasis-web',
+    location: 'Yayasan Insan Nusantara',
+    image: image('news', 'pkm-yayasan-nusantara.png'),
+    date: '2025-12-17',
     excerpt:
-      'Pembelajaran dirancang lebih dekat dengan pengalaman siswa melalui diskusi, presentasi, dan praktik kolaboratif di kelas.',
+      'Mahasiswa Teknik Informatika Universitas Pamulang melaksanakan kegiatan PKM untuk membantu sekolah mengembangkan website profil dan manajemen konten berbasis web.',
     content:
-      'SMA Mutiara Insan Nusantara terus mendorong pembelajaran yang aktif dan bermakna. Guru mengajak siswa berdiskusi, menyampaikan gagasan, dan bekerja dalam kelompok agar kemampuan akademik berjalan seimbang dengan keberanian berkomunikasi.'
+      'Kegiatan Pengabdian Kepada Masyarakat ini memperkenalkan rancangan sistem informasi sekolah yang dapat digunakan sebagai media profil, publikasi informasi, pendaftaran siswa baru, dan pendaftaran kegiatan ekstrakurikuler secara daring. Program ini diharapkan mendukung digitalisasi layanan sekolah serta meningkatkan literasi teknologi bagi guru dan siswa.',
+    sourceUrl:
+      'https://zonaaktual.com/2025/12/17/perancangan-sistem-informasi-profil-dan-manajemen-konten-sekolah-berbasis-web-pada-yayasan-nusantara/'
   },
   {
     id: 2,

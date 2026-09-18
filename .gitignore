@@ -1,9 +1,28 @@
-/.phpunit.cache
+# Backend ignores
+/backend/vendor
+/backend/node_modules
+/backend/public/storage
+/backend/public/build
+/backend/public/hot
+/backend/storage/*.key
+/backend/storage/clockwork
+/backend/clockwork.db
+/backend/.phpunit.cache
+/backend/.phpunit.result.cache
+/backend/.env
+/backend/.env.backup
+/backend/.env.production
+
+# Frontend ignores
+/frontend/node_modules
+/frontend/dist
+/frontend/dist-ssr
+/frontend/.env
+/frontend/.env.local
+/frontend/.env.*.local
+
+# General ignores
 /node_modules
-/public/build
-/public/hot
-/public/storage
-/storage/*.key
 /vendor
 .env
 .env.backup
@@ -17,21 +36,6 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
-
-# Build artifacts
 *.tar
 *.tar.gz
-build.tar.gz
-deploy.tar
-deploy_fresh.tar
-
-# Database backups
 *.sql
-database_backup.sql
-
-# Test files
-test-*.php
-
-# Clockwork debugging
-/storage/clockwork
-clockwork.db

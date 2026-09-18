@@ -1,150 +1,139 @@
-# 🏫 SMA Mutiara Insan Nusantara - Website & CMS
+# 🏫 SMA Mutiara Insan Nusantara - Website & CMS (Monorepo)
 
-Website sistem informasi sekolah SMA Yayasan Mutiara Insan Nusantara dengan fitur PPDB Online, CMS Admin, dan Landing Page modern.
+Website sistem informasi sekolah SMA Yayasan Mutiara Insan Nusantara dengan PPDB Online, CMS Admin, dan Landing Page modern.
 
-**Live Production:** [sma-mutiarainsannusantara.my.id](https://sma-mutiarainsannusantara.my.id)
-
----
-
-## 🚀 Tech Stack
-
-| Layer | Technology |
-|-------|------------|
-| Backend | Laravel 11, PHP 8.2+ |
-| Frontend | Vue.js 3 (Composition API) |
-| Styling | Tailwind CSS 3 |
-| State | Pinia |
-| Routing | Vue Router 4 |
-| Build | Vite 6 |
-| Auth | Laravel Sanctum |
-| Rich Text | TipTap Editor |
-| Icons | Lucide Icons |
-| Animation | GSAP, Lenis |
+Proyek ini menggunakan arsitektur **Monorepo 2 Folder**:
+* 📁 [`frontend/`](frontend) - Standalone Vue 3 (Vite SPA) siap deploy ke **Vercel**.
+* 📁 [`backend/`](backend) - Standalone Laravel 11 REST API siap deploy ke **Server / VPS / Laravel Cloud**.
 
 ---
 
-## ✨ Fitur Utama
-
-### 🌐 Public Website
-- **Landing Page** - Homepage dengan animasi smooth scroll
-- **Berita** - Artikel/berita sekolah dengan kategori
-- **Galeri** - Galeri foto kegiatan sekolah
-- **Prestasi** - Showcase prestasi siswa
-- **Ekstrakurikuler** - Daftar ekskul dengan pendaftaran online
-- **Profil Sekolah** - Visi misi, sambutan kepala sekolah
-
-### 📝 PPDB (Pendaftaran Peserta Didik Baru)
-- **Form Pendaftaran Multi-step** - 6 section (Identitas, Alamat, Pendidikan, Orang Tua, Wali, Kesehatan)
-- **Gelombang Pendaftaran** - Multiple waves dengan kuota & deadline
-- **Cek Status** - Halaman cek status pendaftaran via nomor registrasi
-- **Pengumuman** - Pengumuman hasil seleksi
-
-### 🔐 Admin Panel (`/yasmin-panel`)
-- **Dashboard** - Overview statistik PPDB, Ekskul, Konten Website
-- **PPDB Management** - Kelola pendaftar, gelombang, seleksi, pengumuman
-- **Content Management** - Kelola berita, galeri, prestasi, pengumuman
-- **Ekstrakurikuler** - Kelola ekskul dengan sistem token pendaftaran
-- **User Management** - Kelola admin/users
-- **Activity Logs** - Log aktivitas admin
-- **Calendar** - Agenda sekolah dengan sidebar kalender
-
----
-
-## 📁 Struktur Project
+## 📁 Struktur Monorepo
 
 ```
-├── app/
-│   ├── Http/Controllers/
-│   │   ├── Api/             # API Controllers
-│   │   └── Admin/           # Admin Controllers
-│   └── Models/              # Eloquent Models
-├── resources/
-│   ├── js/
-│   │   ├── components/      # Vue Components
-│   │   ├── pages/           # Vue Pages
-│   │   ├── views/           # Admin Views
-│   │   ├── stores/          # Pinia Stores
-│   │   ├── composables/     # Vue Composables
-│   │   └── router/          # Vue Router Config
-│   └── css/
-│       └── app.css          # Tailwind + Custom Styles
-├── routes/
-│   ├── api.php              # API Routes
-│   └── web.php              # Web Routes
-└── public/
-    └── build/               # Built Assets (Vite)
+profil_yasmin/
+├── backend/                   # [LARAVEL 11 REST API]
+│   ├── app/
+│   │   ├── Http/Controllers/Api/
+│   │   ├── Models/
+│   │   └── Traits/
+│   ├── config/cors.php        # Whitelist domain Vercel & localhost
+│   ├── database/              # Migrations & Seeders
+│   ├── routes/
+│   │   ├── api.php            # Endpoint API publik & admin
+│   │   └── web.php            # Health check & Sitemap
+│   ├── storage/app/public/    # Upload media / gambar
+│   ├── .env.example           # Template environment lokal
+│   ├── .env.production.example# Template environment produksi
+│   └── artisan
+│
+├── frontend/                  # [VUE 3 + VITE SPA]
+│   ├── src/
+│   │   ├── components/        # Komponen UI
+│   │   ├── pages/             # Halaman publik (Home, Profil, Guru, PPDB, dll)
+│   │   ├── views/             # Admin Panel (/yasmin-panel)
+│   │   ├── router/            # Vue Router 4
+│   │   ├── stores/            # Pinia stores
+│   │   └── utils/image.js     # Resolver URL media dari storage backend
+│   ├── vercel.json            # Konfigurasi rewrite SPA & asset caching
+│   ├── .env.example           # Template env VITE_API_BASE_URL
+│   └── vite.config.js
+│
+├── .gitignore
+└── README.md
 ```
 
 ---
 
-## 🛠️ Installation
+## 🛠️ Panduan Development Lokal
 
-### Prerequisites
-- PHP 8.2+
-- Composer
-- Node.js 18+
-- MySQL 8+
+### 1. Backend (Laravel via Herd)
 
-### Setup
+Buka terminal pada folder `backend`:
 
 ```bash
-# Clone repository
-git clone https://github.com/syhrlf-e/Website-Sistem-Informasi-Sekolah-Yasmin.git
-cd Website-Sistem-Informasi-Sekolah-Yasmin
-
-# Install dependencies
-composer install
-npm install
+cd backend
 
 # Setup environment
-cp .env.example .env
+copy .env.example .env
+
+# Generate APP_KEY
 php artisan key:generate
 
-# Configure database in .env
-DB_DATABASE=your_database
-DB_USERNAME=your_username
-DB_PASSWORD=your_password
-
-# Run migrations & seeders
+# Migrasi & Seeder Database
 php artisan migrate --seed
 
-# Create storage link
+# Symlink Storage (Wajib untuk akses gambar publik)
 php artisan storage:link
 ```
 
-### Development
-
-```bash
-# Terminal 1: Laravel server
-php artisan serve
-
-# Terminal 2: Vite dev server
-npm run dev
-```
-
-### Production Build
-
-```bash
-npm run build
-php artisan config:cache
-php artisan route:cache
-php artisan view:cache
-```
+> **Laravel Herd:** Di Laravel Herd, Anda dapat melakukan *link* atau *park* pada folder `backend`:
+> ```bash
+> cd backend
+> herd link profil-yasmin-api
+> ```
+> Backend akan dapat diakses di: `http://profil-yasmin-api.test`
 
 ---
 
-## 🤝 Contributors
+### 2. Frontend (Vue 3 SPA)
 
-| Role | Name |
-|------|------|
-| Developer | Tim Pengabdian Masyarakat Universitas Pamulang |
+Buka terminal pada folder `frontend`:
+
+```bash
+cd frontend
+
+# Setup environment
+copy .env.example .env
+
+# Sesuaikan VITE_API_BASE_URL di .env mengarah ke domain backend Herd Anda, contoh:
+# VITE_API_BASE_URL=http://profil-yasmin-api.test
+
+# Install dependencies
+npm install
+
+# Jalankan server frontend
+npm run dev
+```
+
+Frontend akan berjalan di: `http://localhost:5173`.
+
+---
+
+## 🚢 Panduan Deployment
+
+### A. Deploy Frontend ke Vercel
+
+1. Buka [Vercel Dashboard](https://vercel.com) -> **Add New Project**.
+2. Hubungkan repositori GitHub ini.
+3. Pada opsi **Root Directory**, pilih folder: `frontend`.
+4. Framework Preset: `Vite`.
+5. Tambahkan **Environment Variable**:
+   * `VITE_API_BASE_URL` = `https://api.domain-backend-anda.com`
+6. Klik **Deploy**.
+
+### B. Deploy Backend ke Server (VPS / Cloud / Forge)
+
+1. Deploy isi folder `backend/` ke server.
+2. Salin `.env.production.example` menjadi `.env`:
+   ```env
+   APP_ENV=production
+   APP_DEBUG=false
+   APP_URL=https://api.domain-backend-anda.com
+   FRONTEND_URL=https://project-anda.vercel.app
+   ```
+3. Jalankan:
+   ```bash
+   composer install --no-dev --optimize-autoloader
+   php artisan key:generate
+   php artisan migrate --force
+   php artisan storage:link
+   php artisan config:cache
+   php artisan route:cache
+   ```
 
 ---
 
 ## 📄 License
 
-MIT License - see [LICENSE](LICENSE) for details.
-
----
-
-**Built with ❤️ for SMA Yayasan Mutiara Insan Nusantara**
+MIT License.

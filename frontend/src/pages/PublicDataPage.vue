@@ -9,6 +9,7 @@
 import { computed, onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import api from '@/services/api'
+import { getStaticPageData } from '@/data/staticContent'
 
 import Home from './Home.vue'
 import Profil from './Profil.vue'
@@ -24,6 +25,7 @@ import PrestasiIndex from './Prestasi/Index.vue'
 
 const route = useRoute()
 const pageProps = ref({})
+const hasApiBaseUrl = Boolean((import.meta.env.VITE_API_BASE_URL || '').trim())
 
 const components = {
   Home,
@@ -54,6 +56,12 @@ const loadPage = async () => {
   pageProps.value = {}
 
   if (!endpoint) {
+    return
+  }
+
+  pageProps.value = getStaticPageData(endpoint)
+
+  if (!hasApiBaseUrl) {
     return
   }
 

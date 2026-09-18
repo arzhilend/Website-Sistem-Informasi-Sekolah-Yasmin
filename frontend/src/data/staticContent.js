@@ -129,20 +129,20 @@ export const staticPrestasi = [
   },
   {
     id: 4,
-    title: 'Juara 1 Lomba MBG',
-    nama_prestasi: 'Juara 1 Lomba MBG',
-    slug: 'juara-1-lomba-mbg',
+    title: 'Juara Umum Remaja Tangerang Gemilang',
+    nama_prestasi: 'Juara Umum Remaja Tangerang Gemilang',
+    slug: 'juara-umum-remaja-tangerang-gemilang-2026',
     description:
-      'Kreativitas dan kedisiplinan siswa membawa hasil membanggakan dalam kompetisi antar sekolah.',
-    image: image('prestasi', '1764922679_juara-1-lomba-mbg.webp'),
-    category: 'Kreativitas',
-    kategori: 'Kreativitas',
+      'Konsistensi latihan dan kerja sama tim membawa siswa meraih hasil membanggakan pada ajang daerah.',
+    image: image('prestasi', '1764824157_juara-umum-tingkat-remaja-tangerang-gemilang.webp'),
+    category: 'Nonakademik',
+    kategori: 'Nonakademik',
     level: 'Daerah',
     tingkat: 'Daerah',
     year: 2026,
     tahun: 2026,
-    participants: 'Tim Kreatif Yasmin',
-    peserta: 'Tim Kreatif Yasmin'
+    participants: 'Tim Yasmin',
+    peserta: 'Tim Yasmin'
   }
 ]
 

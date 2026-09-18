@@ -4,8 +4,9 @@ import axios from 'axios'
 import { createHead } from '@vueuse/head'
 import { createPinia } from 'pinia'
 import Swal from 'sweetalert2'
-import { createApp, h } from 'vue'
+import { createApp } from 'vue'
 import VueLazyload from 'vue-lazyload'
+import App from './App.vue'
 import router from './router'
 import { useAuth } from './composables/useAuth'
 import { useThemeStore } from './stores/theme'
@@ -28,7 +29,7 @@ if (apiBaseUrl) {
   }
 }
 
-const app = createApp({ render: () => h('router-view') })
+const app = createApp(App)
 const pinia = createPinia()
 
 app.use(pinia)

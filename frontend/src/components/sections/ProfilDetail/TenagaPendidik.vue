@@ -297,7 +297,6 @@
 <script setup>
 import { onMounted, onUnmounted, ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
-import axios from 'axios'
 import { staticTeachers } from '@/data/staticContent'
 
 const router = useRouter()
@@ -310,7 +309,6 @@ const navigateToGuru = () => {
 const teachers = ref([])
 const loading = ref(true)
 const error = ref(null)
-const hasApiBaseUrl = Boolean((import.meta.env.VITE_API_BASE_URL || '').trim())
 
 // Carousel state
 const carouselContainer = ref(null)
@@ -326,31 +324,9 @@ const carouselTeachers = computed(() => displayedTeachers.value)
 
 // API Functions
 const fetchTeachers = async () => {
-  if (!hasApiBaseUrl) {
-    teachers.value = staticTeachers
-    loading.value = false
-    error.value = null
-    return
-  }
-
-  try {
-    loading.value = true
-    error.value = null
-    
-    const response = await axios.get('/api/guru')
-    
-    if (response.data.success) {
-      teachers.value = response.data.data
-    } else {
-      throw new Error('Failed to fetch teachers')
-    }
-  } catch (err) {
-    console.error('Error fetching teachers:', err)
-    teachers.value = staticTeachers
-    error.value = null
-  } finally {
-    loading.value = false
-  }
+  teachers.value = staticTeachers
+  loading.value = false
+  error.value = null
 }
 
 // Carousel Functions

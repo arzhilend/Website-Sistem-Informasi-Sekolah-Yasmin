@@ -258,16 +258,18 @@
 <script setup>
 import EmptyState from '@/components/ui/shared/EmptyState.vue'
 import LoadingSpinner from '@/components/ui/shared/LoadingSpinner.vue'
-import { useNewsStore } from '@/stores/news'
 import { useHead } from '@vueuse/head'
 import { Check, Image as ImageIcon, Link2, Newspaper } from 'lucide-vue-next'
-import { computed, onMounted, ref } from 'vue'
+import { computed, ref } from 'vue'
 import BackButton from '@/components/ui/BackButton.vue'
-import { useRoute, useRouter } from 'vue-router'
+import { useRouter } from 'vue-router'
 import DOMPurify from 'isomorphic-dompurify'
 
-const newsStore = useNewsStore()
-const route = useRoute()
+const newsStore = {
+  detailLoading: false,
+  error: null,
+  currentNews: null
+}
 const router = useRouter()
 const linkCopied = ref(false)
 
@@ -326,16 +328,6 @@ useHead({
     { property: 'og:image', content: seoImage },
     { property: 'og:type', content: 'article' }
   ]
-})
-
-// Only fetch if no Inertia props (fallback for SPA navigation)
-onMounted(async () => {
-  if (!props.news) {
-    const slug = route.params.slug
-    if (slug) {
-      await newsStore.fetchNewsDetail(slug)
-    }
-  }
 })
 
 const handleRelatedClick = (related) => {

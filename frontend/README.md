@@ -1,20 +1,15 @@
 # Yasmin Frontend
 
-Frontend standalone Vue/Vite untuk deploy ke Vercel. Backend tetap Laravel dan dipakai sebagai API.
+Frontend standalone Vue/Vite untuk deploy ke Vercel.
+
+Data publik saat ini memakai konten hardcode dari `src/data/staticContent.js`, jadi frontend tidak perlu dihubungkan ke backend Laravel.
 
 ## Development
 
 ```powershell
 cd frontend
-copy .env.example .env
 npm install
 npm run dev
-```
-
-Isi `.env` lokal:
-
-```env
-VITE_API_BASE_URL=http://profil-yasmin.test
 ```
 
 ## Vercel
@@ -22,30 +17,17 @@ VITE_API_BASE_URL=http://profil-yasmin.test
 Set project Vercel ke folder `frontend`.
 
 - Framework preset: `Vite`
+- Install command: `npm install`
 - Build command: `npm run build`
 - Output directory: `dist`
-- Environment variable: `VITE_API_BASE_URL=https://domain-backend-laravel-kamu.com`
+- Environment variables: kosongkan
 
-## Backend Laravel
+## Konten
 
-Laravel tetap deploy normal sebagai backend/API. Pastikan `.env` backend punya:
+Berita standalone hanya memakai satu artikel:
 
-```env
-APP_URL=https://domain-backend-laravel-kamu.com
-FRONTEND_URL=https://domain-frontend-vercel-kamu.vercel.app
-SANCTUM_STATEFUL_DOMAINS=domain-frontend-vercel-kamu.vercel.app
-SESSION_DOMAIN=
-```
+`Perancangan Sistem Informasi Profil dan Manajemen Konten Sekolah Berbasis Web pada Yayasan Nusantara`
 
-Public page data tersedia dari endpoint:
+Sumber:
 
-```text
-/api/public/home
-/api/public/profil
-/api/public/news
-/api/public/news/{slug}
-/api/public/prestasi
-/api/public/ppdb
-/api/public/ppdb/landing
-/api/public/guru
-```
+`https://zonaaktual.com/2025/12/17/perancangan-sistem-informasi-profil-dan-manajemen-konten-sekolah-berbasis-web-pada-yayasan-nusantara/`

@@ -1,16 +1,11 @@
 /**
- * Helper utility for resolving Laravel storage media URLs.
- * Handles relative storage paths, full URLs, and prefixes with VITE_API_BASE_URL.
+ * Helper utility for resolving local/static media URLs.
  */
-
-const getApiBaseUrl = () => {
-  return (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '')
-}
 
 /**
  * Resolves a storage image path to a full accessible URL.
- * 
- * @param {string|null} path - Image path from API or database
+ *
+ * @param {string|null} path - Image path
  * @param {string|null} fallback - Fallback URL if path is missing
  * @returns {string|null}
  */
@@ -24,21 +19,19 @@ export const getStorageUrl = (path, fallback = null) => {
     return path
   }
 
-  const baseUrl = getApiBaseUrl()
-
   // Starts with /storage/
   if (path.startsWith('/storage/')) {
-    return baseUrl ? `${baseUrl}${path}` : path
+    return path
   }
 
   // Starts with storage/ (no leading slash)
   if (path.startsWith('storage/')) {
-    return baseUrl ? `${baseUrl}/${path}` : `/${path}`
+    return `/${path}`
   }
 
   // Relative path inside storage (e.g. "prestasi/xxx.webp" or "news/xxx.jpg")
   const cleanPath = path.startsWith('/') ? path : `/${path}`
-  return baseUrl ? `${baseUrl}/storage${cleanPath}` : `/storage${cleanPath}`
+  return `/storage${cleanPath}`
 }
 
 export default {

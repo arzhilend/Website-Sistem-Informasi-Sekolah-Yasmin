@@ -9,75 +9,16 @@ export const staticNews = [
     location: 'Yayasan Insan Nusantara',
     image: image('news', 'pkm-yayasan-nusantara.png'),
     date: '2025-12-17',
+    author: 'Zona Aktual',
+    category: 'Kegiatan',
     excerpt:
-      'Mahasiswa Teknik Informatika Universitas Pamulang melaksanakan kegiatan PKM untuk membantu sekolah mengembangkan website profil dan manajemen konten berbasis web.',
+      'Mahasiswa Program Studi Teknik Informatika Universitas Pamulang melaksanakan kegiatan Pengabdian Kepada Masyarakat untuk membantu sekolah mengembangkan website profil dan manajemen konten berbasis web.',
     content:
-      'Kegiatan Pengabdian Kepada Masyarakat ini memperkenalkan rancangan sistem informasi sekolah yang dapat digunakan sebagai media profil, publikasi informasi, pendaftaran siswa baru, dan pendaftaran kegiatan ekstrakurikuler secara daring. Program ini diharapkan mendukung digitalisasi layanan sekolah serta meningkatkan literasi teknologi bagi guru dan siswa.',
+      '<p>Mahasiswa Program Studi Teknik Informatika Universitas Pamulang melaksanakan kegiatan Pengabdian Kepada Masyarakat dengan judul <strong>Perancangan Sistem Informasi Profil dan Manajemen Konten Sekolah Berbasis Web pada Yayasan Nusantara</strong>.</p><p>Kegiatan ini dilaksanakan di lingkungan Yayasan Insan Nusantara dan diikuti oleh pihak sekolah, guru, serta siswa. Program ini bertujuan membantu sekolah menghadirkan website profil sebagai media informasi sekaligus sarana digital untuk pendaftaran siswa baru dan pendaftaran kegiatan ekstrakurikuler secara daring.</p><p>Dalam kegiatan tersebut, tim PKM memaparkan fitur utama website, mulai dari halaman profil sekolah, manajemen konten informasi, hingga sistem pendaftaran online. Melalui sistem ini, pengelolaan data sekolah diharapkan menjadi lebih efektif, terstruktur, transparan, dan mudah diakses.</p><p>Kegiatan ditutup dengan sesi foto bersama antara tim PKM, guru, dan siswa sebagai dokumentasi kerja sama dalam mendukung digitalisasi layanan pendidikan.</p>',
     sourceUrl:
       'https://zonaaktual.com/2025/12/17/perancangan-sistem-informasi-profil-dan-manajemen-konten-sekolah-berbasis-web-pada-yayasan-nusantara/'
-  },
-  {
-    id: 2,
-    title: 'Pembiasaan Karakter Melalui Kegiatan Pagi Sekolah',
-    slug: 'pembiasaan-karakter-kegiatan-pagi',
-    location: 'Lapangan Sekolah',
-    image: image('news', '1764611696_NMy9tLPh80.jpeg'),
-    date: '2026-01-18',
-    excerpt:
-      'Kegiatan pagi menjadi ruang pembentukan disiplin, tanggung jawab, dan kepedulian antarwarga sekolah.',
-    content:
-      'Setiap pagi, siswa mengikuti kegiatan pembiasaan yang menekankan kedisiplinan, kerapian, doa bersama, dan arahan singkat dari guru. Rutinitas ini menjadi bagian dari budaya sekolah yang menumbuhkan karakter baik.'
-  },
-  {
-    id: 3,
-    title: 'Kolaborasi Siswa dalam Proyek Kreatif Sekolah',
-    slug: 'kolaborasi-siswa-proyek-kreatif',
-    location: 'Ruang Kegiatan',
-    image: image('news', '1764666601_5R8qafUgiI.png'),
-    date: '2026-02-02',
-    excerpt:
-      'Siswa belajar merancang ide, membagi peran, dan menyelesaikan proyek dengan pendekatan kreatif.',
-    content:
-      'Proyek kreatif memberi kesempatan bagi siswa untuk mengembangkan kemampuan berpikir kritis dan kerja sama. Setiap kelompok diarahkan menghasilkan karya yang relevan dengan lingkungan sekolah dan kehidupan sehari-hari.'
-  },
-  {
-    id: 4,
-    title: 'Semangat Literasi Tumbuh dari Ruang Kelas',
-    slug: 'semangat-literasi-ruang-kelas',
-    location: 'Perpustakaan',
-    image: image('news', '1764842948_7MwYnquTEU.webp'),
-    date: '2026-02-14',
-    excerpt:
-      'Gerakan literasi sekolah membantu siswa membangun kebiasaan membaca, menulis, dan memahami informasi secara bijak.',
-    content:
-      'Literasi menjadi bagian penting dari proses belajar. Melalui kegiatan membaca terarah dan refleksi singkat, siswa dilatih memahami teks, menyusun pendapat, dan menyampaikan gagasan dengan lebih runtut.'
-  },
-  {
-    id: 5,
-    title: 'Kegiatan Sekolah Menguatkan Kebersamaan Warga Yasmin',
-    slug: 'kegiatan-sekolah-menguatkan-kebersamaan',
-    location: 'Aula Sekolah',
-    image: image('news', '1764893646_5naqycSldR.jpg'),
-    date: '2026-03-04',
-    excerpt:
-      'Agenda sekolah menjadi ruang perjumpaan yang memperkuat komunikasi antara siswa, guru, dan lingkungan sekolah.',
-    content:
-      'Berbagai kegiatan sekolah dirancang untuk menjaga suasana belajar yang hangat. Melalui agenda bersama, siswa belajar menghargai perbedaan, bekerja sama, dan mengambil bagian dalam kehidupan sekolah.'
-  },
-  {
-    id: 6,
-    title: 'Siswa Mengikuti Pembinaan Prestasi Akademik dan Nonakademik',
-    slug: 'pembinaan-prestasi-akademik-nonakademik',
-    location: 'SMA Mutiara Insan Nusantara',
-    image: image('news', '1765127251_9HrQpjuWCJ.webp'),
-    date: '2026-03-16',
-    excerpt:
-      'Pembinaan dilakukan secara bertahap agar minat dan potensi siswa berkembang sesuai bidangnya.',
-    content:
-      'Sekolah memberi ruang pembinaan bagi siswa yang memiliki minat di bidang akademik, olahraga, seni, dan organisasi. Pendampingan guru menjadi kunci agar potensi siswa terarah dan berkelanjutan.'
   }
 ]
-
 export const staticPrestasi = [
   {
     id: 1,
@@ -388,4 +329,17 @@ export const staticPageData = {
   }
 }
 
-export const getStaticPageData = (endpoint) => staticPageData[endpoint] || {}
+export const getStaticPageData = (endpoint) => {
+  if (endpoint?.startsWith('/public/news/')) {
+    const slug = endpoint.replace('/public/news/', '')
+    const news = staticNews.find((item) => item.slug === slug) || staticNews[0]
+
+    return {
+      news,
+      relatedNews: []
+    }
+  }
+
+  return staticPageData[endpoint] || {}
+}
+

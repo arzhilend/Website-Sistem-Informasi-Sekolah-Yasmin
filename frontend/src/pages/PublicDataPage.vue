@@ -8,7 +8,6 @@
 <script setup>
 import { computed, onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
-import api from '@/services/api'
 import { getStaticPageData } from '@/data/staticContent'
 
 import Home from './Home.vue'
@@ -25,7 +24,6 @@ import PrestasiIndex from './Prestasi/Index.vue'
 
 const route = useRoute()
 const pageProps = ref({})
-const hasApiBaseUrl = Boolean((import.meta.env.VITE_API_BASE_URL || '').trim())
 
 const components = {
   Home,
@@ -60,25 +58,9 @@ const loadPage = async () => {
   }
 
   pageProps.value = getStaticPageData(endpoint)
-
-  if (!hasApiBaseUrl) {
-    return
-  }
-
-  try {
-    const response = await api.get(endpoint, {
-      params: route.query
-    })
-
-    pageProps.value = response.data && typeof response.data === 'object'
-      ? response.data
-      : {}
-  } catch (error) {
-    console.warn(`Failed to load public page data from ${endpoint}`, error)
-    pageProps.value = {}
-  }
 }
 
+loadPage()
 onMounted(loadPage)
 watch(() => [route.fullPath, route.meta.endpoint], loadPage)
 </script>

@@ -6,10 +6,8 @@
 
 import axios from 'axios'
 
-const apiBaseUrl = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '')
-
 const api = axios.create({
-  baseURL: `${apiBaseUrl}/api`,
+  baseURL: '/api',
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
@@ -27,10 +25,6 @@ api.interceptors.request.use(
     const csrfToken = document.querySelector('meta[name="csrf-token"]')
     if (csrfToken) {
       config.headers['X-CSRF-TOKEN'] = csrfToken.content
-    }
-
-    if (apiBaseUrl) {
-      config.withCredentials = true
     }
 
     const token = sessionStorage.getItem('admin_token')
